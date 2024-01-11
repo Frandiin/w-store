@@ -5,7 +5,6 @@ import GitHubProvider from "next-auth/providers/github";
 import { prismaClient } from "./prisma";
 
 export const authOptions: AuthOptions = {
-  adapter: PrismaAdapter(prismaClient),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
