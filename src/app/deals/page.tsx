@@ -6,7 +6,7 @@ import { computeProductTotalPrice } from "@/src/helpers/products";
 import { Badge } from "../components/ui/badge";
 import { PercentIcon } from "lucide-react";
 
-const Details = async () => {
+const Deals = async () => {
   const deals = await prismaClient.product.findMany({
     where: {
       discountPercent: {
@@ -15,6 +15,7 @@ const Details = async () => {
     },
   });
   return (
+    <>
     <div className="flex flex-col gap-4 p-5">
       <Badge
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
@@ -33,7 +34,9 @@ const Details = async () => {
         ))}
       </div>
     </div>
+    </>
+    
   );
 };
 
-export default Details;
+export default Deals;
