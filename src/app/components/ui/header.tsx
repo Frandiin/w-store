@@ -23,6 +23,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
 import Link from "next/link";
 import Cart from "./cart";
+import { Product } from "@prisma/client";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -90,15 +91,30 @@ const Header = () => {
               </Button>
             )}
 
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <HomeIcon size={16} />
-              Início
-            </Button>
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <HomeIcon size={16} />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
 
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <PercentIcon size={16} />
-              Ofertas
-            </Button>
+            <SheetClose asChild>
+              <Link href={"/deals"}>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <PercentIcon size={16} />
+                  Ofertas
+                </Button>
+              </Link>
+            </SheetClose>
+
             <SheetClose asChild>
               <Link href="/catalog">
                 <Button
